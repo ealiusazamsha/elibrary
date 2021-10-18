@@ -1,0 +1,107 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="KO.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+<link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.min.css"/>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/JavaScript" src="/js/jquery-1.6.3.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="/css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="/js/ddsmoothmenu.js"></script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "menu", 
+	orientation: 'h', 
+	classname: 'ddsmoothmenu', 
+	contentsource: "markup" 
+})
+
+</script>
+
+<link rel="stylesheet" href="/css/slimbox2.css" type="text/css" media="screen" /> 
+<script type="text/JavaScript" src="/js/slimbox2.js"></script> 
+
+<link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+<div id="header">
+    <a href="/index.aspx" class="sitetitle">Education</a>  
+    <div id="menu" class="ddsmoothmenu">
+        <ul>
+            <li><a href="/index.aspx">Home</a></li>
+			
+			<li><a href="/about.aspx">About</a></li>
+			
+            <li><a href="/Categories.aspx">Categories</a></li>
+			
+            <li><a href="/resources.aspx">Resources</a></li>
+			
+			<li class="last"><a href="/contact.aspx" class="last">Contact</a>
+                <ul>
+                    <li><a href="signup.aspx" class="button blue">Sign Up</a></li>
+                    <li><a href="Signup/Signin.aspx" class="button black">Login</a></li>
+                    <li><a href="#" class="button black">Logout</a></li>
+                </ul>
+			</li>
+        </ul>
+          
+        <br style="clear: left" />
+    </div>     
+</div> 
+
+
+
+<br />
+<div id="main">
+<asp:ContentPlaceHolder ID="Mainbody" runat="server">
+    </asp:ContentPlaceHolder></div>
+
+<div id="footer_wrapper">
+	<div id="footer">
+    
+        <a href="index.aspx">Home</a> | <a href="about.aspx">About</a> | <a href="Categories.aspx">Categories</a> | <a href="resources.aspx">Resources</a> | <a href="contact.aspx">Contact</a><br /><br />
+
+        Copyright © 2017 <a href="index.aspx">MMS E-Library</a>
+    
+    </div> 
+</div>
+     <script src="/js/scroll-startstop.events.jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		var $elem = $('#content');
+		
+		$('#nav_up').fadeIn('slow');
+		
+		$(window).bind('scrollstart', function(){
+			$('#nav_up,#nav_down').stop().animate({'opacity':'0.2'});
+		});
+		$(window).bind('scrollstop', function(){
+			$('#nav_up,#nav_down').stop().animate({'opacity':'1'});
+		});
+		
+		$('#nav_up').click(
+			function (e) {
+				$('html, body').animate({scrollTop: '0px'}, 800);
+			}
+		);
+	});
+</script>
+
+
+
+    
+    </form>
+</body>
+</html>
